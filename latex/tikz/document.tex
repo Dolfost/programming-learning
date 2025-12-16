@@ -52,4 +52,30 @@
 \draw[very thick] (-1,-1) arc [start angle=185,
   end angle=355, x radius=1, y radius=0.5];
 \end{tikzpicture}
+
+\usetikzlibrary{datavisualization}
+\begin{tikzpicture}
+	\datavisualization [
+		scientific axes=clean, 
+		x axis = {
+			attribute=batch_size, 
+			ticks=many, length=\linewidth, label=batch size 
+		},
+		y axis = {
+			attribute=time, 
+			include value=0, 
+			length=8cm, 
+			label=time,
+			ticks={tick unit=ns},
+		},
+		all axes={grid},
+		visualize as scatter,
+	] data [
+		format=table, 
+		read from file=data1.txt, 
+		separator=\space,
+		headline={batch_size time}
+	];
+\end{tikzpicture}
+
 \end{document}

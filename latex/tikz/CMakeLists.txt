@@ -8,6 +8,7 @@ list(APPEND CMAKE_MODULE_PATH
 	
 find_package(LATEX REQUIRED)
 find_package(LatexMk REQUIRED)
+find_package(TexLogFilter)
 
 add_custom_target(pdf ALL
 	COMMAND ${LATEXMK_EXECUTABLE} document.tex
@@ -22,3 +23,11 @@ add_custom_target(pdf ALL
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/latexmkrc.in"
 	"${CMAKE_CURRENT_BINARY_DIR}/latexmkrc" @ONLY
 )
+
+if(TEXLOGFILTER_FOUND)
+	configure_file("${CMAKE_CURRENT_SOURCE_DIR}/continuous.sh.in"
+		"continious"
+		FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE
+		@ONLY
+	)
+endif()
