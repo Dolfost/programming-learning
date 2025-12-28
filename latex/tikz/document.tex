@@ -78,4 +78,85 @@
 	];
 \end{tikzpicture}
 
+\begin{tikzpicture}
+	\draw (4,2) node[draw, color=red, fill=yellow, text=blue] {TikZ};
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+	\node[draw] at (4,2) {TikZ};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\node (r) at (0,1) [draw,rectangle] {rectangle};
+	\node (c) at (1.5,0) [draw,circle] {circle};
+	\node (e) at (3,1) [draw,ellipse] {ellipse};
+	
+	\draw[->] (r.east) -- (e.west);
+	\draw[->] (r.south) -- (c.north west);
+	\draw[->] (e.south west) -- (c.north east);
+	%   n 
+	% w   e
+	%   s
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\coordinate (begin) at (0,0);
+	\coordinate (end) at (5,0);
+	\draw (begin) -- (end);
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\node[draw,shape=cloud] at (0,0) {text};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\node (student) [graduate, monitor, minimum size=2cm] at (1,1) {};
+	\node at (student.45) [starburst, draw=red, fill=yellow, starburst point height=4mm, line width = .4pt, font = \ttfamily\scriptsize, inner sep=1.5pt] {error};
+	\node at (student.130) [cloud callout, cloud puffs=13, aspect=3, anchor=pointer, shading=ball, ball color=gray, text=white, font=\bfseries] {My thesis\dots!};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\node [draw] (TikZ) {TikZ};
+	\node [draw, right = 1mm of TikZ] {PDF};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\draw (0,0) --
+		node [above, pos=0] {0}
+		node [above, pos=0.5] {0.5}
+		node [above, pos=1] {1}
+		node [below, pos=0.25] {0.25}
+		node [below, pos=0.75] {0.75}
+	(4,0);
+\end{tikzpicture}
+
+\begin{tikzpicture}[every node/.style = {inner sep=0pt}]
+  \node (E) {E};
+  \node (p) [base right = 0pt of E] {p};
+  \node (i) [base right = 0pt of p] {i};
+  \node (c) [base right = 0pt of i] {c};
+	\node (.) [base right = 0pt of c] {.};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\node[
+		label = above:Graphics,
+		label = left:Design,
+		label = below:Typography,
+		label = right:Coding,
+		circle, shading=ball, ball color=blue!60, text=white]
+		{TikZ};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\node[
+		pin = above:Graphics,
+		pin = left:Design,
+		pin = below:Typography,
+		pin = right:Coding,
+		circle, shading=ball, ball color=blue!60, text=white]
+		{TikZ};
+\end{tikzpicture}
+
 \end{document}
